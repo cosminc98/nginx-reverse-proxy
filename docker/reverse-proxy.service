@@ -1,0 +1,13 @@
+[Unit]
+Description=Reverse proxy service
+After=network.target
+Wants=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=sudo docker run -p 80:80 <IMAGE_NAME>
+
+[Install]
+WantedBy=default.target
